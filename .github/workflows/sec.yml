@@ -5,6 +5,9 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: client
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -14,5 +17,4 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           build: npm run build
-          project: ./client
           start: npm start
